@@ -4,7 +4,7 @@
 
 
 (defn on-click
-  "This function will be called when a grid item is "
+  "This function will be called when a grid item is clicked."
   [x y card grid values])
 
 
