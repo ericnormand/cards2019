@@ -15,6 +15,11 @@
    (:grid db)))
 
 (re-frame/reg-sub
+ :cards/values
+ (fn [db _]
+   (:values db)))
+
+(re-frame/reg-sub
  :cards/card-at
  (fn [db [_]]
    (re-frame/subscribe [:cards/grid]))
@@ -105,8 +110,13 @@
            [grid-element x y]]))]))])
 
 (defn button [label f]
-  [:button {:on-click f :style {:margin-right 10}}
-   label])
+  (let [grid   @(re-frame/subscribe [:cards/grid])
+        values @(re-frame/subscribe [:cards/values])]
+    [:button {:on-click (when f
+                          (fn []
+                            (f grid values)))
+              :style {:margin-right 10}}
+     label]))
 
 (defn label [& text]
   (into [:div {:style {:display "inline-block" :margin-right 10}}] text))
