@@ -85,17 +85,28 @@
    (game/on-turn-end (:grid db) (:values db))
    db))
 
+(re-frame/reg-event-db
+ :cards/end-game
+ (fn [db [_]]
+   (game/on-game-end (:grid db) (:values db))
+   db))
+
+(re-frame/reg-event-db
+ :cards/move-onscreen
+ (fn [db [_ x y]]
+   (update-in db [:grid [x y]] dissoc :position)))
+
 (defn grid-element [x y]
   (if-some [{:keys [picture side]} @(re-frame/subscribe [:cards/card-at x y])]
     [:div.card-space
-      [:div {:class (str "flip-container "
-                     (if (= side :front) "up" "down"))}
-       [:div {:class "flipper"
-              :on-click (fn []
+     [:div {:class (str "flip-container "
+                        (if (= side :front) "up" "down"))}
+      [:div {:class "flipper"
+             :on-click (fn []
                          (re-frame/dispatch [:cards/on-click x y]))}
-        [:div {:class "front card-picture"}
-         picture]
-        [:div.back {:class "card-picture"}]]]]
+       [:div {:class "front card-picture"}
+        picture]
+       [:div.back {:class "card-picture"}]]]]
     [:div.card-space {:on-click (fn []
                                   (re-frame/dispatch [:cards/on-click x y]))}]))
 

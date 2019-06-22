@@ -48,3 +48,8 @@
   "End the turn."
   []
   (re-frame/dispatch [:cards/end-turn]))
+
+(defn end-game
+  "End the game."
+  []
+  (re-frame/dispatch [:cards/end-game]))
