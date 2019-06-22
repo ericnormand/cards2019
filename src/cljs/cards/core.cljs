@@ -11,6 +11,8 @@
 (defn game-board []
   [cards/row
    [cards/heading welcome-message]
+   [cards/row
+    [cards/button "Start game" game/start-game]]
    [cards/grid]
    [cards/debug]])
 
