@@ -2,6 +2,8 @@
   (:require-macros [cards.cards :as cards])
   (:require [cards.cards :as cards]))
 
+(def cards ["A" "B" "C" "D"])
+
 (defn start-game []
   (cards/deal 0 0 "X" :front)
   (cards/deal 0 1 "Y"))
