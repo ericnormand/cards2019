@@ -7,8 +7,10 @@
 
 (defn start-game []
   (cards/remove-all-cards)
-  (cards/deal 0 0 "X" :front)
-  (cards/deal 0 1 "Y"))
+  (dotimes [i (count cards2)]
+    (let [x (mod i 4)
+          y (quot i 4)]
+      (cards/deal x y (nth cards2 i) :front))))
 
 (defn on-click
   "This function will be called when a grid item is clicked."
