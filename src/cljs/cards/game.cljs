@@ -12,3 +12,7 @@
 (defn on-turn-end
   "This function will be called when the turn changes."
   [grid values])
+
+(defn on-game-end
+  "This function will be called when the game ends."
+  [grid values])
