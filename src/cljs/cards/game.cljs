@@ -61,7 +61,11 @@
       (do
         (cards/wait 2
                     (cards/remove-card x1 y1)
-                    (cards/remove-card x2 y2)))
+                    (cards/remove-card x2 y2)
+                    (let [current-player (get values :current-player)
+                          score (get values [:score current-player])]
+                      (cards/set-value [:score current-player] (+ 1 score)))
+))
       (do
         (cards/wait 2
                     (cards/flip x1 y1)
