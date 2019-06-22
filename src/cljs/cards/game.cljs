@@ -2,6 +2,8 @@
   (:require-macros [cards.cards :as cards])
   (:require [cards.cards :as cards]))
 
+(defn start-game []
+  (js/alert "Hello, Eric."))
 
 (defn on-click
   "This function will be called when a grid item is clicked."
