@@ -38,7 +38,26 @@
 
 (defn on-turn-end
   "This function will be called when the turn changes."
-  [grid values])
+  [grid values]
+  (let [pos-cards (up-cards grid)
+
+        pos-card1 (first pos-cards)
+        pos1 (key pos-card1)
+        card1 (val pos-card1)
+        picture1 (get card1 :picture)
+        x1 (first pos1)
+        y1 (second pos1)
+
+        pos-card2 (second pos-cards)
+        pos2 (key pos-card2)
+        card2 (val pos-card2)
+        picture2 (get card2 :picture)
+        x2 (first pos2)
+        y2 (second pos2)]
+    (if (= picture1 picture2)
+      (do
+        (cards/remove-card x1 y1)
+        (cards/remove-card x2 y2)))))
 
 (defn on-game-end
   "This function will be called when the game ends."
