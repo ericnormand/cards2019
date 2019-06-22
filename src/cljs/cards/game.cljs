@@ -21,7 +21,7 @@
   [x y card grid values]
   (if (not (up? card))
     (cards/flip x y))
-  (prn card))
+  (prn grid))
 
 
 
