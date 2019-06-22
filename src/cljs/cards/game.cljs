@@ -3,6 +3,7 @@
   (:require [cards.cards :as cards]))
 
 (def cards ["A" "B" "C" "D"])
+(def cards2 (concat cards cards))
 
 (defn start-game []
   (cards/deal 0 0 "X" :front)
