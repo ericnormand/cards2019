@@ -5,6 +5,9 @@
 (def cards ["A" "B" "C" "D"])
 (def cards2 (concat cards cards))
 
+(defn up? [card]
+  (= :front (get card :side)))
+
 (defn start-game []
   (cards/remove-all-cards)
   (let [scards (shuffle cards2)]
