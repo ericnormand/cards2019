@@ -17,6 +17,7 @@
 
 (defn start-game []
   (cards/remove-all-cards)
+  (cards/set-value :current-player 1)
   (let [scards (shuffle cards2)]
     (dotimes [i (count scards)]
       (let [x (mod i 4)
