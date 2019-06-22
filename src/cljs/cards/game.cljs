@@ -65,7 +65,8 @@
                     (let [current-player (get values :current-player)
                           score (get values [:score current-player])]
                       (cards/set-value [:score current-player] (+ 1 score)))
-))
+                    (if (= 2 (count grid))
+                      (cards/end-game))))
       (do
         (cards/wait 2
                     (cards/flip x1 y1)
