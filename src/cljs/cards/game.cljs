@@ -3,6 +3,7 @@
   (:require [cards.cards :as cards]))
 
 (defn start-game []
+  (cards/remove-all-cards)
   (cards/deal 0 0 "X" :front)
   (cards/deal 0 1 "Y"))
 
