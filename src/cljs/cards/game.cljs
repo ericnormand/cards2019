@@ -3,7 +3,8 @@
   (:require [cards.cards :as cards]))
 
 (defn start-game []
-  (js/alert "Hello, Eric."))
+  (cards/deal 0 0 "X" :front)
+  (cards/deal 0 1 "Y"))
 
 (defn on-click
   "This function will be called when a grid item is clicked."
