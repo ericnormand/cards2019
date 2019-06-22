@@ -77,4 +77,11 @@
 
 (defn on-game-end
   "This function will be called when the game ends."
-  [grid values])
+  [grid values]
+  (let [p1-score (get values [:score 1])
+        p2-score (get values [:score 2])]
+    (if (> p1-score p2-score)
+      (cards/set-value :winner 1)
+      (if (> p2-score p1-score)
+        (cards/set-value :winner 2)
+        (cards/set-value :winner :tie)))))
