@@ -13,7 +13,9 @@
    [cards/heading welcome-message]
    [cards/row
     [cards/button "Start game" game/start-game]
-    [cards/label "Current player: " (c/display-value :current-player)]]
+    [cards/label "Current player: " (c/display-value :current-player)]
+    [cards/label "Player 1: " (c/display-value [:score 1])]
+    [cards/label "Player 2: " (c/display-value [:score 2])]]
    [cards/grid]
    [cards/debug]])
 
