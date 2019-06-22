@@ -8,6 +8,13 @@
 (defn up? [card]
   (= :front (get card :side)))
 
+(defn up-cards [grid]
+  (filter (fn [pos-card]
+            (let [card (val pos-card)
+                  pos  (key pos-card)]
+              (up? card)))
+          grid))
+
 (defn start-game []
   (cards/remove-all-cards)
   (let [scards (shuffle cards2)]
