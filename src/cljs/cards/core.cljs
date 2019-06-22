@@ -15,7 +15,11 @@
     [cards/button "Start game" game/start-game]
     [cards/label "Current player: " (c/display-value :current-player)]
     [cards/label "Player 1: " (c/display-value [:score 1])]
-    [cards/label "Player 2: " (c/display-value [:score 2])]]
+    [cards/label "Player 2: " (c/display-value [:score 2])]
+    (if (c/display-value :winner)
+      (if (= :tie (c/display-value :winner))
+        [cards/label "It's a tie!"]
+        [cards/label "Player " (c/display-value :winner) " is the winner!"]))]
    [cards/grid]
    [cards/debug]])
 
