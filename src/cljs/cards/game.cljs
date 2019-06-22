@@ -57,7 +57,10 @@
     (if (= picture1 picture2)
       (do
         (cards/remove-card x1 y1)
-        (cards/remove-card x2 y2)))))
+        (cards/remove-card x2 y2))
+      (do
+        (cards/flip x1 y1)
+        (cards/flip x2 y2)))))
 
 (defn on-game-end
   "This function will be called when the game ends."
