@@ -11,7 +11,7 @@
     (dotimes [i (count scards)]
       (let [x (mod i 4)
             y (quot i 4)]
-        (cards/deal x y (nth scards i) :front)))))
+        (cards/deal x y (nth scards i))))))
 
 (defn on-click
   "This function will be called when a grid item is clicked."
