@@ -19,7 +19,8 @@
 (defn on-click
   "This function will be called when a grid item is clicked."
   [x y card grid values]
-  (cards/flip x y)
+  (if (not (up? card))
+    (cards/flip x y))
   (prn card))
 
 
