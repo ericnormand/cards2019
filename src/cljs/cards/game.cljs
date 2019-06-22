@@ -27,8 +27,11 @@
   "This function will be called when a grid item is clicked."
   [x y card grid values]
   (if (not (up? card))
-    (if (< (count (up-cards grid)) 2)
-      (cards/flip x y)))
+    (do
+      (if (< (count (up-cards grid)) 2)
+        (cards/flip x y))
+      (if (= 1 (count (up-cards grid)))
+        (cards/end-turn))))
   (prn grid))
 
 
